@@ -96,9 +96,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 26002043}
   - 212: {fileID: 26002042}
-  - 114: {fileID: 26002041}
   - 61: {fileID: 26002040}
   - 50: {fileID: 26002039}
+  - 114: {fileID: 26002041}
   - 114: {fileID: 26002044}
   m_Layer: 0
   m_Name: box.005.002
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6a493fe046a3f49bd11eb8468c2797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overlapObj: 
 --- !u!1 &136271315
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 997388379}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -450,9 +451,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1884548049}
   - 212: {fileID: 1884548048}
-  - 114: {fileID: 1884548050}
   - 61: {fileID: 1884548052}
   - 50: {fileID: 1884548051}
+  - 114: {fileID: 1884548050}
   - 114: {fileID: 1884548053}
   m_Layer: 0
   m_Name: box.005.001
@@ -550,3 +551,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6a493fe046a3f49bd11eb8468c2797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overlapObj: 

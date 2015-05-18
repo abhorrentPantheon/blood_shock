@@ -3,11 +3,13 @@ using System.Collections;
 
 public class DetectOverlap : MonoBehaviour {
 
-	public Collider2D overlapObj = null;
+	//public Collider2D overlapObj = null;
+	public string overlapObj = null;
 
 	void OnTriggerEnter2D (Collider2D other) {
 		Debug.Log ("Object " + other.name + " overlapped zone");
-		overlapObj = other;
+		//overlapObj = other
+		overlapObj = other.name;
 		//Debug.Log ("new overlap");
 	}
 
@@ -21,5 +23,4 @@ public class DetectOverlap : MonoBehaviour {
 		overlapObj = null;
 		//Debug.Log ("no longer overlap");
 	}
-	
 }

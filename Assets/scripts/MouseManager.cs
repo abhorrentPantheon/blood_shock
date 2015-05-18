@@ -37,12 +37,25 @@ public class MouseManager: MonoBehaviour {
 				// Move object
 				grabbedRB.velocity = Vector2.zero;
 				Debug.Log ("let go of " + grabbedRB.name);
-				//grabbedObject
+
+
+				/* None of these work
+				//float xVal = GameObject.Find(this.name).GetComponent<InitVelocity>().initVel.x;
+				//float xVal = GetComponent<InitVelocity>().initVel.x;
+				//float xVal = this.gameObject.GetComponent<InitVelocity>().initVel.x;
+				//float xVal = this.GetComponent<InitVelocity>().initVel.x;
+				*/
+
+				//float xVal = GameObject.Find(grabbedRB.name).GetComponent<InitVelocity>().initVel.x;
+				//float xVal = 3f;
+				//Debug.Log (xVal);
 
 				// Get the overlapObj from DetectOverlap
-
-				if (GetComponent<DetectOverlap>().overlapObj != null) {
-					Debug.Log (GetComponent<DetectOverlap>().overlapObj.name);
+				//GetComponent<DetectOverlap>().overlapObj;
+				if (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj != null) {
+					string ovObj = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj;
+					//Debug.Log (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj);
+					grabbedRB.position = GameObject.Find(ovObj).transform.position;
 				}
 
 				//DetectOverlap overlapObj = GetComponent<DetectOverlap>();

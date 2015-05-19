@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DetectOverlap : MonoBehaviour {
 
-	//public Collider2D overlapObj = null;
 	public string overlapObj = null;
 
 	void OnTriggerEnter2D (Collider2D other) {

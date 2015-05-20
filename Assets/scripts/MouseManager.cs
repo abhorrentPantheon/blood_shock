@@ -38,35 +38,33 @@ public class MouseManager: MonoBehaviour {
 				grabbedRB.velocity = Vector2.zero;
 				Debug.Log ("let go of " + grabbedRB.name);
 
-
-				/* None of these work
-				//float xVal = GameObject.Find(this.name).GetComponent<InitVelocity>().initVel.x;
-				//float xVal = GetComponent<InitVelocity>().initVel.x;
-				//float xVal = this.gameObject.GetComponent<InitVelocity>().initVel.x;
-				//float xVal = this.GetComponent<InitVelocity>().initVel.x;
-				*/
-
-				//float xVal = GameObject.Find(grabbedRB.name).GetComponent<InitVelocity>().initVel.x;
-				//float xVal = 3f;
-				//Debug.Log (xVal);
-
 				// Get the overlapObj from DetectOverlap
-				//GetComponent<DetectOverlap>().overlapObj;
-				if (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj != null) {
-					string ovObj = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj;
-					//Debug.Log (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj);
-					grabbedRB.position = GameObject.Find(ovObj).transform.position;
+				// If ovObj is a box, move it to a socket
+				if (grabbedRB.name.Contains( "box") ) {
+					if (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj != null) {
+						string ovObj = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj;
+						if (ovObj.Contains ("socket") ) {
+							grabbedRB.position = GameObject.Find(ovObj).transform.position;
+						} 
+					}
 				}
 
-				//DetectOverlap overlapObj = GetComponent<DetectOverlap>();
-//				if (overlapObj != null) {
-//					Debug.Log ("overlapObj = " + overlapObj.name);
-//				}
-//				if (overlapObj != null) {
-//					Debug.Log ("Overlap: " + overlapObj);
-//					
-//				}
+				/* 
+				 * 
+				 * These sections need to detect whether socket/target is already populated, and if so, return object
+				 * to initial position.
+				 * 
+				 */
 
+				// If ovObj is an arrow, move it to a target
+				if (grabbedRB.name.Contains( "arrow") ) {
+					if (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj != null) {
+						string ovObj = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj;
+						if (ovObj.Contains ("target") ) {
+							grabbedRB.position = GameObject.Find(ovObj).transform.position;
+						} 
+					}
+				}
 				// null MUST come after doing something with it, else exception.
 				grabbedRB = null;
 			}

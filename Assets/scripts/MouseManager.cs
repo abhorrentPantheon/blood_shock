@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MouseManager: MonoBehaviour {
 	
 	Rigidbody2D grabbedRB = null;
-
+	Vector2 grabbedInitPos = Vector2.zero;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,49 +25,86 @@ public class MouseManager: MonoBehaviour {
 			//if (hit != null && hit.collider != null) {
 			if (hit.collider != null) {
 				// Clicked on something with a collider
-				Debug.Log ("clicked on " + hit.collider.name);
+				//Debug.Log ("clicked on " + hit.collider.name);
 				grabbedRB = hit.collider.attachedRigidbody;
-
+				grabbedInitPos = GameObject.Find(grabbedRB.name).GetComponent<InitVelocity>().initLoc;
 			}
+
 			
 		}
 		
 		if (Input.GetMouseButtonUp(0)) {
 			if (grabbedRB != null) {
 
+				//Vector2 grabbedInitPos = grabbedRB.position;
+
 				// Move object
 				grabbedRB.velocity = Vector2.zero;
-				Debug.Log ("let go of " + grabbedRB.name);
+				//Debug.Log ("let go of " + grabbedRB.name);
 
-				// Get the overlapObj from DetectOverlap
 				// If ovObj is a box, move it to a socket
 				if (grabbedRB.name.Contains( "box") ) {
-					if (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj != null) {
-						string ovObj = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj;
-						if (ovObj.Contains ("socket") ) {
+					// Create alias for detect overlap component
+					var detOver = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>();
+					
+					if (detOver.overlapObj != null) {
+						List<string> ovList = detOver.overlapList;
+						//string ovListP = string.Join("-", ovList.ToArray());
+						
+						// List comprehension to find 'target' in strings of ovList
+						string ovObj = ovList.Find(listEl => listEl.Contains("socket"));
+						
+						// If there's a 'target' for the object:
+						if (ovObj != null ) {
 							grabbedRB.position = GameObject.Find(ovObj).transform.position;
-						} 
+							
+						} else {
+							// otherwise snap back to initLoc
+							grabbedRB.position = grabbedInitPos;
+						}
+						
+						// If there's no overlap of a 'target', snap back to initLoc
+					} else {
+						grabbedRB.position = grabbedInitPos;
 					}
 				}
 
 				/* 
 				 * 
-				 * These sections need to detect whether socket/target is already populated, and if so, return object
+				 * This sections need to detect whether socket/target is already populated, and if so, return object
 				 * to initial position.
 				 * 
 				 */
 
 				// If ovObj is an arrow, move it to a target
 				if (grabbedRB.name.Contains( "arrow") ) {
-					if (GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj != null) {
-						string ovObj = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>().overlapObj;
-						if (ovObj.Contains ("target") ) {
+					// Create alias for detect overlap component
+					var detOver = GameObject.Find(grabbedRB.name).GetComponent<DetectOverlap>();
+
+					if (detOver.overlapObj != null) {
+						List<string> ovList = detOver.overlapList;
+						//string ovListP = string.Join("-", ovList.ToArray());
+
+						// List comprehension to find 'target' in strings of ovList
+						string ovObj = ovList.Find(listEl => listEl.Contains("target"));
+
+						// If there's a 'target' for the object:
+						if (ovObj != null ) {
 							grabbedRB.position = GameObject.Find(ovObj).transform.position;
-						} 
+
+						} else {
+							// otherwise snap back to initLoc
+							grabbedRB.position = grabbedInitPos;
+						}
+
+					// If there's no overlap of a 'target', snap back to initLoc
+					} else {
+						grabbedRB.position = grabbedInitPos;
 					}
 				}
 				// null MUST come after doing something with it, else exception.
 				grabbedRB = null;
+				grabbedInitPos = Vector2.zero;
 			}
 		}
 		

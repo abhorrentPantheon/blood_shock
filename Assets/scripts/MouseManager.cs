@@ -27,7 +27,8 @@ public class MouseManager: MonoBehaviour {
 				// Clicked on something with a collider
 				//Debug.Log ("clicked on " + hit.collider.name);
 				grabbedRB = hit.collider.attachedRigidbody;
-				grabbedInitPos = GameObject.Find(grabbedRB.name).GetComponent<InitVelocity>().initLoc;
+				//grabbedInitPos = GameObject.Find(grabbedRB.name).GetComponent<InitVelocity>().initLoc;
+				grabbedInitPos = GameObject.Find(grabbedRB.name).GetComponent<objMovement>().initLoc;
 			}
 
 			
@@ -92,15 +93,33 @@ public class MouseManager: MonoBehaviour {
 						if (ovObj != null ) {
 							grabbedRB.position = GameObject.Find(ovObj).transform.position;
 
-						} else {
+						} 
+						//else {
 							// otherwise snap back to initLoc
-							grabbedRB.position = grabbedInitPos;
-						}
+							//grabbedRB.position = grabbedInitPos;
+
+							//Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+							//Vector2 mousePos2D = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
+							//Vector2 returnHome = grabbedRB.position - grabbedInitPos;
+//							Vector2 returnHome = grabbedInitPos - grabbedRB.position;
+//							Debug.Log (returnHome);
+							//Vector2 returnHome = grabbedInitPos - mousePos2D;
+//							grabbedRB.velocity = returnHome;// * 25;
+//						}
 
 					// If there's no overlap of a 'target', snap back to initLoc
-					} else {
-						grabbedRB.position = grabbedInitPos;
-					}
+					} 
+					//else {
+						//grabbedRB.position = grabbedInitPos;
+
+						//Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+						//Vector2 mousePos2D = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
+						//Vector2 returnHome = grabbedRB.position - grabbedInitPos;
+//						Vector2 returnHome = grabbedInitPos - grabbedRB.position;
+//						Debug.Log (returnHome);
+						//Vector2 returnHome = grabbedInitPos - mousePos2D;
+//						grabbedRB.velocity = returnHome;// * 25;
+//					}
 				}
 				// null MUST come after doing something with it, else exception.
 				grabbedRB = null;
@@ -112,7 +131,7 @@ public class MouseManager: MonoBehaviour {
 	
 	void FixedUpdate() {
 		// Don't move if it's a blank box
-		if (grabbedRB != null && grabbedRB.name.Contains("blank") == false) {
+		if (grabbedRB != null && !grabbedRB.name.Contains("blank")) {
 			
 			// Make the object centre to the mouse position smoothly
 			Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -125,6 +144,17 @@ public class MouseManager: MonoBehaviour {
 
 			// Snap to mousePos2D:
 			//grabbedObject.position = mousePos2D;
+
+			/* 
+			 * Fix this bit to return objects to home smoothly (rather than instant 
+			 */
+
+//			var objMov = GameObject.Find(grabbedRB.name).GetComponent<objMovement>();
+//			if (!objMov.atHome) {
+//				//Vector2 retHome = grabbedRB.position - grabbedInitPos;
+//				Vector2 retHome = grabbedInitPos - grabbedRB.position;
+//				grabbedRB.velocity = retHome * 25;
+//			}
 		}
 	}
 }

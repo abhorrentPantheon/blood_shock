@@ -6,6 +6,8 @@ public class objMovement : MonoBehaviour {
 	public Vector3 initVel;
 	public Vector3 initLoc;
 	public bool atHome = true;
+	public bool atDest = false;
+	public bool reHome = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,7 +18,11 @@ public class objMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if ( Input.GetMouseButtonUp(0) ) {
+			if (!this.atHome && ! this.atDest) {
+				this.reHome = true;
+			}
+		}
 	}
 
 	void FixedUpdate() {

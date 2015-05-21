@@ -102,7 +102,7 @@ GameObject:
   - 114: {fileID: 26002044}
   m_Layer: 0
   m_Name: box.002
-  m_TagString: Untagged
+  m_TagString: boxes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!212 &26002042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -312,7 +314,7 @@ GameObject:
   - 114: {fileID: 133640905}
   m_Layer: 0
   m_Name: arrow_static.001
-  m_TagString: Untagged
+  m_TagString: arrows
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,6 +346,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!50 &133640907
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -631,7 +635,7 @@ GameObject:
   - 114: {fileID: 1109603349}
   m_Layer: 0
   m_Name: arrow_increase.002
-  m_TagString: Untagged
+  m_TagString: arrows
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -663,6 +667,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!50 &1109603351
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -841,7 +847,7 @@ GameObject:
   - 114: {fileID: 1553139734}
   m_Layer: 0
   m_Name: arrow_decrease.001
-  m_TagString: Untagged
+  m_TagString: arrows
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,6 +866,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!114 &1553139734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1081,7 @@ GameObject:
   - 114: {fileID: 1884548053}
   m_Layer: 0
   m_Name: box.001
-  m_TagString: Untagged
+  m_TagString: boxes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,6 +1138,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!50 &1884548051
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1186,7 +1196,7 @@ GameObject:
   - 114: {fileID: 2076547356}
   m_Layer: 0
   m_Name: arrow_static.002
-  m_TagString: Untagged
+  m_TagString: arrows
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1218,6 +1228,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!50 &2076547358
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1299,7 +1311,7 @@ GameObject:
   - 114: {fileID: 2081438141}
   m_Layer: 0
   m_Name: arrow_increase.001
-  m_TagString: Untagged
+  m_TagString: arrows
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1331,6 +1343,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!50 &2081438143
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1412,7 +1426,7 @@ GameObject:
   - 114: {fileID: 2091958823}
   m_Layer: 0
   m_Name: arrow_decrease.002
-  m_TagString: Untagged
+  m_TagString: arrows
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1444,6 +1458,8 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   initLoc: {x: 0, y: 0, z: 0}
   atHome: 1
+  atDest: 0
+  reHome: 0
 --- !u!50 &2091958825
 Rigidbody2D:
   m_ObjectHideFlags: 0

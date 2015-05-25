@@ -9,17 +9,16 @@ public class objMovement : MonoBehaviour {
 	public bool atDest = false;
 	public bool reHome = false;
 	
-	// Use this for initialization
+	/* Use this for initialization */
 	void Start () {
 		this.GetComponent<Rigidbody2D>().velocity = initVel;
-		//this.GetComponent<Transform()>.position = initLoc;
 		initLoc = this.GetComponent<Transform>().position;
 	}
 	
-	// Update is called once per frame
+	/* Update is called once per frame */
 	void Update () {
 		if ( Input.GetMouseButtonUp(0) ) {
-			if (!this.atHome && ! this.atDest) {
+			if (!this.atHome || ! this.atDest) {
 				this.reHome = true;
 			}
 		}
@@ -28,6 +27,9 @@ public class objMovement : MonoBehaviour {
 	void FixedUpdate() {
 		if (this.GetComponent<Transform>().position != initLoc) {
 			atHome = false;
+		} else {
+			atHome = true;
+			reHome = false;
 		}
 	}
 }

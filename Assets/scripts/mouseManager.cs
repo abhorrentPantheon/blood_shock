@@ -7,18 +7,63 @@ public class mouseManager: MonoBehaviour {
 	Rigidbody2D grabbedRB = null;
 	/* As this is set to zero, all interactive objects will need to be on the axis z = 0. */
 	Vector2 grabbedInitPos = Vector2.zero;
+	
+	/* Function to check whether an arrow or text box are over the correct type of destination object */
+	void overCorrectType ( string chkStr ) {
+		
+		string chkCont = null;
 
+		switch ( chkStr ) {
+		case "box":
+			chkCont = "socket";
+			break;
+		case "arrow":
+			chkCont = "target";
+			break;
+		default:
+			Debug.Log("No type of object referenced. Did you click on anything?");
+			break;
+		}
+
+		/* Create alias for components */
+		var detOver = GameObject.Find(grabbedRB.name).GetComponent<detectOverlap>();
+		var objMov = GameObject.Find(grabbedRB.name).GetComponent<objMovement>();
+
+		/* If there's an overlap on the correct type, lock there, else go home */
+		if ( detOver.overlapObj != null ) {
+			List<string> ovList = detOver.overlapList;
+			
+			/* List comprehension to find 'target' in strings of ovList */
+			string ovObjNm = ovList.Find(listOvObj => listOvObj.Contains( chkCont ) );
+			var ovObj = GameObject.Find(ovObjNm);
+			
+			/* If there's a 'target' for the object: */
+			if ( ovObjNm != null && !ovObj.GetComponent<answerAssigned>().ansLock ) {
+				grabbedRB.position = GameObject.Find(ovObjNm).transform.position;
+				objMov.reHome = false;
+				objMov.atDest = true;
+				ovObj.GetComponent<answerAssigned>().ansLock = true;
+				
+			} else {
+				
+				objMov.atDest = false;
+			}
+		} else {
+			objMov.atDest = false;
+		}
+	}
+	
 	// Use this for initialization
 	void Start () {
-
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector2 mousePos2D = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
-
+		
 		if ( Input.GetMouseButtonDown(0) ) {
 
 			Vector2 dir = Vector2.zero;
@@ -44,62 +89,73 @@ public class mouseManager: MonoBehaviour {
 				 * 
 				 * If ovObj is a box, move it to a socket
 				 */
-				if ( grabbedRB.name.Contains( "box") ) {
-					/* Create alias for detect overlap component */
-					var detOver = GameObject.Find(grabbedRB.name).GetComponent<detectOverlap>();
-					var objMov = GameObject.Find(grabbedRB.name).GetComponent<objMovement>();
-					
-					if ( detOver.overlapObj != null ) {
-						List<string> ovList = detOver.overlapList;
-						
-						/* List comprehension to find 'target' in strings of ovList */
-						string ovObjNm = ovList.Find(listOvObj => listOvObj.Contains("socket"));
-						var ovObj = GameObject.Find(ovObjNm);
 
-						/* If there's a 'target' for the object: */
-						if ( ovObjNm != null && !ovObj.GetComponent<answerAssigned>().ansLock ) {
-							objMov.reHome = false;
-							grabbedRB.position = GameObject.Find(ovObjNm).transform.position;
-							objMov.atDest = true;
-							ovObj.GetComponent<answerAssigned>().ansLock = true;
-
-						} else {
-							objMov.atDest = false;
-						}
-					} else {
-						objMov.atDest = false;
-					}
+				if ( grabbedRB.name.Contains( "box" ) ) {
+					overCorrectType( "box" );
+				}
+				if (grabbedRB.name.Contains( "arrow" ) ) {
+					overCorrectType( "arrow" );
 				}
 
-				/* If ovObj is an arrow, move it to a target */
-				if ( grabbedRB.name.Contains( "arrow") ) {
-					/* Create alias for detect overlap component */
-					var detOver = GameObject.Find(grabbedRB.name).GetComponent<detectOverlap>();
-					var objMov = GameObject.Find(grabbedRB.name).GetComponent<objMovement>();
+//				if ( grabbedRB.name.Contains( "box") ) {
+//					/* Create alias for detect overlap component */
+//					var detOver = GameObject.Find(grabbedRB.name).GetComponent<detectOverlap>();
+//					var objMov = GameObject.Find(grabbedRB.name).GetComponent<objMovement>();
+//					
+//					if ( detOver.overlapObj != null ) {
+//						List<string> ovList = detOver.overlapList;
+//						
+//						/* List comprehension to find 'target' in strings of ovList */
+//						string ovObjNm = ovList.Find(listOvObj => listOvObj.Contains("socket"));
+//						var ovObj = GameObject.Find(ovObjNm);
+//
+//						/* If there's a 'target' for the object: */
+//						if ( ovObjNm != null && !ovObj.GetComponent<answerAssigned>().ansLock ) {
+//							objMov.reHome = false;
+//							grabbedRB.position = GameObject.Find(ovObjNm).transform.position;
+//							objMov.atDest = true;
+//							ovObj.GetComponent<answerAssigned>().ansLock = true;
+//
+//						} else {
+//							objMov.atDest = false;
+//						}
+//					} else {
+//						objMov.atDest = false;
+//					}
+//				}
+//				
+//				/* If ovObj is an arrow, move it to a target
+//				 * NB: May be possible to use GameObject.CompareTag("targets") here?
+//				 */
+//				if ( grabbedRB.name.Contains( "arrow") ) {
+//					/* Create alias for detect overlap component */
+//					var detOver = GameObject.Find(grabbedRB.name).GetComponent<detectOverlap>();
+//					var objMov = GameObject.Find(grabbedRB.name).GetComponent<objMovement>();
+//
+//					if ( detOver.overlapObj != null ) {
+//						List<string> ovList = detOver.overlapList;
+//
+//						/* List comprehension to find 'target' in strings of ovList */
+//						string ovObjNm = ovList.Find(listOvObj => listOvObj.Contains( "target" ));
+//						var ovObj = GameObject.Find(ovObjNm);
+//
+//						/* If there's a 'target' for the object: */
+//						if ( ovObjNm != null ) {
+//							objMov.reHome = false;
+//							grabbedRB.position = GameObject.Find(ovObjNm).transform.position;
+//							objMov.atDest = true;
+//							ovObj.GetComponent<answerAssigned>().ansLock = true;
+//						} else {
+//							objMov.atDest = false;
+//							//Vector2 goHome = grabbedInitPos - grabbedRB.position;
+//							//ovObj.GetComponent<answerAssigned>().ansLock = false;
+//						}
+//					} else {
+//						objMov.atDest = false;
+//						//grabbedRB.velocity = grabbedInitPos - grabbedRB.position;
+//					}
+//				}
 
-					if ( detOver.overlapObj != null ) {
-						List<string> ovList = detOver.overlapList;
-
-						/* List comprehension to find 'target' in strings of ovList */
-						string ovObjNm = ovList.Find(listOvObj => listOvObj.Contains( "target" ));
-						var ovObj = GameObject.Find(ovObjNm);
-
-						/* If there's a 'target' for the object: */
-						if ( ovObjNm != null ) {
-							objMov.reHome = false;
-							grabbedRB.position = GameObject.Find(ovObjNm).transform.position;
-							objMov.atDest = true;
-							ovObj.GetComponent<answerAssigned>().ansLock = true;
-						} else {
-							objMov.atDest = false;
-							//Vector2 goHome = grabbedInitPos - grabbedRB.position;
-							//ovObj.GetComponent<answerAssigned>().ansLock = false;
-						}
-					} else {
-						objMov.atDest = false;
-						//grabbedRB.velocity = grabbedInitPos - grabbedRB.position;
-					}
-				}
 
 				/* On release of grabbed object, set ansLock to true */
 				GameObject[] sckObjs = GameObject.FindGameObjectsWithTag( "sockets" );

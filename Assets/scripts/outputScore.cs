@@ -3,13 +3,14 @@ using System.Collections;
 
 public class outputScore : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	//public int txtVal = 0;
+
+
+	void FixedUpdate() {
+		/* Add way to write the text */
+//		switch ( txtVal ) {
+//		case 1:
+//
+//		}
 	}
 }

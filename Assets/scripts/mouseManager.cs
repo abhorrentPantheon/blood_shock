@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -29,7 +30,10 @@ public class mouseManager: MonoBehaviour {
 				grabbedRB = hc.attachedRigidbody;
 				grabbedInitPos = GameObject.Find(grabbedRB.name).GetComponent<objMovement>().initLoc;
 			}
-
+			if (hc != null && hc.name.Contains( "done" ) ) {
+				var oScoreTB = GameObject.Find("Score");
+				oScoreTB.GetComponent<Text>().text = ""+oScoreTB.GetComponent<outputScore>().outScore;
+			}
 		}
 		
 		if ( Input.GetMouseButtonUp(0) ) {

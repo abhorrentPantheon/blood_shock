@@ -14,7 +14,7 @@ PlayerSettings:
   companyName: University of Melbourne Department of Physiology
   productName: blood_shock
   cloudProjectId: 
-  defaultCursor: {fileID: 2800000, guid: 963505f8c2547054e99b0aacc805f9c1, type: 3}
+  defaultCursor: {fileID: 2800000, guid: af0432b0c02d70048968b16468007de9, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
   defaultScreenWidth: 1024

@@ -5,13 +5,15 @@ using System.Collections.Generic;
 
 public class detectOverlap : MonoBehaviour {
 
+	/* NB One object _MUST_ have a RigidBody2D for this trigger to work */
+
 	public string overlapObj = null;
 	public List<string> overlapList = new List<string>();
 
 	void OnTriggerEnter2D (Collider2D other) {
 		overlapObj = other.name;
-		if (!overlapList.Contains(other.name)) {
-			overlapList.Add(other.name);
+		if (!overlapList.Contains(overlapObj)) {
+			overlapList.Add(overlapObj);
 		}
 	}
 
@@ -23,5 +25,12 @@ public class detectOverlap : MonoBehaviour {
 			/* List is zero-indexed: */
 			overlapObj = overlapList[ overlapList.Count - 1 ];
 		}
+	}
+
+	void Update () {
+
+	}
+	void FixedUpdate () {
+
 	}
 }

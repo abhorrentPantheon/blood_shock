@@ -11,8 +11,16 @@ using System.Collections.Generic;
 
 public class pathwayAAScore : MonoBehaviour {
 
-	public int outScore = 0;
-	public string outFeed = null;
+	private int _outScore = 0;
+	public int outScore {
+		get { return _outScore; }
+		set { _outScore = value; Capi.set ( "Sim.Score", value ); }
+	}
+	private string _outFeed = "";
+	public string outFeed {
+		get { return _outFeed; }
+		set { _outFeed = value; Capi.set ( "Sim.Feedback", value ); }
+	}
 
 	//private string[] feedMaker = new string[20];
 	private int ansMissing = 0;
@@ -201,7 +209,7 @@ public class pathwayAAScore : MonoBehaviour {
 		/*
 		 * TODO: Do we need to be able to differentiate between incorrect box, and incorrect box AND arrow?
 		 */
-	}
+}
 
 	void OnMouseDown() {
 		// socket 2 answered
@@ -230,6 +238,8 @@ public class pathwayAAScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Capi.expose<int> ("Sim.Score", () => { return outScore; }, (value) => { return outScore = value; } );
+		Capi.expose<string> ("Sim.Feedback", () => { return outFeed; }, (value) => { return outFeed = value; } );
 	}
 	
 	// Update is called once per frame

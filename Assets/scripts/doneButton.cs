@@ -11,21 +11,21 @@ public class doneButton : MonoBehaviour {
 	public bool endSim = false;
 
 	/* Have a locally locked thing to hold the mutable value */
-	int _finScore;
-	public int finScore {
-		get { return _finScore; }
-		set { _finScore = value; Capi.set("Done.FinScore", value); }
-	}
-
-	string _feedBack;
-	public string feedBack {
-		get { return _feedBack; }
-		set { _feedBack = value; Capi.set("Done.FeedBack", value); }
-	}
+//	int _finScore;
+//	public int finScore {
+//		get { return _finScore; }
+//		set { _finScore = value; Capi.set("Done.FinScore", value); }
+//	}
+//
+//	string _feedBack;
+//	public string feedBack {
+//		get { return _feedBack; }
+//		set { _feedBack = value; Capi.set("Done.FeedBack", value); }
+//	}
 
 	// Use this for initialization
 	void Start () {
-		finScore = 0;
+//		finScore = 0;
 		origColor = this.GetComponent<Renderer>().material.color;
 	}
 
@@ -47,10 +47,10 @@ public class doneButton : MonoBehaviour {
 //		GameObject.Find("Score").GetComponent<Text>().text = finScore.ToString();
 
 		/* Run the Score script */
-		string oS = this.GetComponent<pathwayAAScore>().outScore.ToString();
-		string oF = this.GetComponent<pathwayAAScore>().outFeed;
-		Debug.Log ("outScore: " + oS);
-		Debug.Log ("outFeed: " + oF);
+//		string oS = this.GetComponent<pathwayAAScore>().outScore.ToString();
+//		string oF = this.GetComponent<pathwayAAScore>().outFeed;
+//		Debug.Log ("outScore: " + oS);
+//		Debug.Log ("outFeed: " + oF);
 
 		/* Stop time - this locks all objects to current location */
 		Time.timeScale = 0;

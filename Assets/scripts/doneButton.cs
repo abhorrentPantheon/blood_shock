@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/* MonoBehaviour to finalise the simulation */
 public class doneButton : MonoBehaviour {
 
 	//GameObject.Find("Score").GetComponent<Text>().text = outScore.ToString();
@@ -45,12 +46,11 @@ public class doneButton : MonoBehaviour {
 //		finScore++ ;
 //		GameObject.Find("Score").GetComponent<Text>().text = finScore.ToString();
 
-		/* Find which are in the correct positions, and if they are, add one to the score 
-		 * 
-		 * Add a field to arrows/boxes to say in/correct? Or to targets/sockets?
-		 */
-
-
+		/* Run the Score script */
+		string oS = this.GetComponent<pathwayAAScore>().outScore.ToString();
+		string oF = this.GetComponent<pathwayAAScore>().outFeed;
+		Debug.Log ("outScore: " + oS);
+		Debug.Log ("outFeed: " + oF);
 
 		/* Stop time - this locks all objects to current location */
 		Time.timeScale = 0;

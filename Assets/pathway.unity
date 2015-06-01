@@ -4429,6 +4429,7 @@ GameObject:
   - 61: {fileID: 1651114334}
   - 114: {fileID: 1651114335}
   - 114: {fileID: 1651114331}
+  - 114: {fileID: 1651114336}
   m_Layer: 0
   m_Name: button_done
   m_TagString: Untagged
@@ -4512,6 +4513,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outScore: 0
   outFeed: 
+--- !u!114 &1651114336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651114330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab6cb74fd4742346a044798e197aeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1660917694
 GameObject:
   m_ObjectHideFlags: 0

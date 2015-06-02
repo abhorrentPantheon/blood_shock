@@ -19,8 +19,8 @@ PlayerSettings:
   m_ShowUnitySplashScreen: 1
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 480
+  defaultScreenHeightWeb: 384
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   m_ActiveColorSpace: 0
@@ -388,7 +388,7 @@ PlayerSettings:
   boolPropertyNames:
   - WebGL::dataCaching
   - XboxOne::enus
-  WebGL::dataCaching: 0
+  WebGL::dataCaching: 1
   XboxOne::enus: 1
   stringPropertyNames:
   - WebGL::emscriptenArgs

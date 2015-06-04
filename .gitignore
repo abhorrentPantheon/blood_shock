@@ -64,3 +64,8 @@ obj/
 *.user
 *.unityproj
 *.booproj
+
+# =============== #
+#  Export files   #
+# =============== #
+output*/

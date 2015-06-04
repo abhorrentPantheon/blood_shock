@@ -48,8 +48,8 @@ public class interactObjControl : MonoBehaviour {
 				 * no object at the destination already, move it there */
 				if (ovList != null && ovObjNm != null && !ovObjAA.ansLock) {
 					this.transform.position = GameObject.Find(ovObjNm).transform.position;
-					/* Make sure obj at original z-val */
-					transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0);
+//					/* Make sure obj at original z-val */
+//					transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, -1);
 					ovObjAA.ansLock = true;
 					this.atDest = true;
 
@@ -89,6 +89,10 @@ public class interactObjControl : MonoBehaviour {
 		if (this.name.Contains("arrow")) {
 			overCorrectType("arrow");
 		}
+
+		/* Reset z-val to original */
+		this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0 );
+
 //		string dl = "H:"+atHome.ToString() +" D:"+ atDest.ToString();
 //		Debug.Log (dl);
 	}
@@ -100,12 +104,14 @@ public class interactObjControl : MonoBehaviour {
 	
 	void FixedUpdate () {
 		if (dragging) {
+
+			this.GetComponent<Renderer> ().material.color = mouseOverColor;
+
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			Vector3 rayPoint = ray.GetPoint(distance);
 			x = rayPoint.x;
 			y = rayPoint.y;
-			this.GetComponent<Renderer> ().material.color = mouseOverColor;
-			transform.position = new Vector3 (x, y, 0);
+			transform.position = new Vector3 (x, y, -1);
 		}
 		if ( !atHome && !atDest ) {
 			float spd = 100 * Time.deltaTime;

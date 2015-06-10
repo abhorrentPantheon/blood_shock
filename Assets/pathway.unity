@@ -445,7 +445,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 89345005}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -557,7 +557,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 117730121}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -653,7 +653,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 126883297}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -765,7 +765,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 133640904}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -868,8 +868,8 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 36
-  m_Depth: -1
+  orthographic size: 38
+  m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 769
@@ -946,7 +946,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 158796189}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -1250,7 +1250,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 222037521}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -1570,7 +1570,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 401692661}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -1764,7 +1764,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 469928679}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -1861,7 +1861,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 473932580}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -2723,7 +2723,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 835663371}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -2931,7 +2931,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 892261996}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -3607,7 +3607,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1324744287}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -4201,7 +4201,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1553139738}
   - 212: {fileID: 1553139737}
-  - 114: {fileID: 1553139733}
   - 61: {fileID: 1553139736}
   - 114: {fileID: 1553139735}
   - 114: {fileID: 1553139734}
@@ -4212,20 +4211,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1553139733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1553139732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398e4802353d12647a3d92409ad2a9bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initLoc: {x: 0, y: 0, z: 0}
-  atHome: 1
-  atDest: 0
 --- !u!114 &1553139734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4536,7 +4521,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1660917694}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -4836,7 +4821,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1716093208}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -5141,7 +5126,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1807154060}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -5542,7 +5527,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1941847403}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -5653,7 +5638,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1946554647}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -6144,7 +6129,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2076547355}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2

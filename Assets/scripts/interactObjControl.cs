@@ -71,28 +71,33 @@ public class interactObjControl : MonoBehaviour {
 	}
 	
 	void OnMouseExit() {
-		this.GetComponent<Renderer> ().material.color = originalColor;
+		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
+			this.GetComponent<Renderer> ().material.color = originalColor;
+		}
 	}
 
 	void OnMouseDown() {
-		distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-		dragging = true;
+		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
+			distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+			dragging = true;
+		}
 	}
 
 	void OnMouseUp() {
-		dragging = false;
+		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
+			dragging = false;
 
-		/* Detect if at a destination */
-		if (this.name.Contains("box")) {
-			overCorrectType("box");
+			/* Detect if at a destination */
+			if (this.name.Contains("box")) {
+				overCorrectType("box");
+			}
+			if (this.name.Contains("arrow")) {
+				overCorrectType("arrow");
+			}
+
+			/* Reset z-val to original */
+			this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0 );
 		}
-		if (this.name.Contains("arrow")) {
-			overCorrectType("arrow");
-		}
-
-		/* Reset z-val to original */
-		this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0 );
-
 //		string dl = "H:"+atHome.ToString() +" D:"+ atDest.ToString();
 //		Debug.Log (dl);
 	}
@@ -103,24 +108,26 @@ public class interactObjControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if (dragging) {
+		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
+			if (dragging) {
 
-			this.GetComponent<Renderer> ().material.color = mouseOverColor;
+				this.GetComponent<Renderer> ().material.color = mouseOverColor;
 
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			Vector3 rayPoint = ray.GetPoint(distance);
-			x = rayPoint.x;
-			y = rayPoint.y;
-			transform.position = new Vector3 (x, y, -1);
-		}
-		if ( !atHome && !atDest ) {
-			float spd = 100 * Time.deltaTime;
-			this.transform.position = Vector2.MoveTowards(this.transform.position, this.initLoc, spd);
-		}
-		if ( this.transform.position != initLoc ) {
-			atHome = false;
-		} else {
-			atHome = true;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				Vector3 rayPoint = ray.GetPoint(distance);
+				x = rayPoint.x;
+				y = rayPoint.y;
+				transform.position = new Vector3 (x, y, -1);
+			}
+			if ( !atHome && !atDest ) {
+				float spd = 100 * Time.deltaTime;
+				this.transform.position = Vector2.MoveTowards(this.transform.position, this.initLoc, spd);
+			}
+			if ( this.transform.position != initLoc ) {
+				atHome = false;
+			} else {
+				atHome = true;
+			}
 		}
 	}
 }

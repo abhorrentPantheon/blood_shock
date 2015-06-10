@@ -8,6 +8,7 @@ public class doneButton : MonoBehaviour {
 	//GameObject.Find("Score").GetComponent<Text>().text = outScore.ToString();
 	private Color origColor;
 	private Color mouseOverColor = new Color( 0.93f, 0.93f, 0.93f);
+	private Color doneColor = new Color (0.75f, 0.75f, 0.75f);
 	public bool endSim = false;
 
 	/* Have a locally locked thing to hold the mutable value */
@@ -31,14 +32,16 @@ public class doneButton : MonoBehaviour {
 
 	void OnMouseEnter() {
 		/* Change material when hover */
-		if (!endSim) {
+		if ( !endSim ) {
 			this.GetComponent<Renderer>().material.color = mouseOverColor;
 		}
 	}
 
 	void OnMouseExit() {
 		/* Change material back when no more */
-		this.GetComponent<Renderer>().material.color = origColor;
+		if ( !endSim ) {
+			this.GetComponent<Renderer>().material.color = origColor;
+		}
 	}
 
 	void OnMouseDown() {
@@ -51,6 +54,18 @@ public class doneButton : MonoBehaviour {
 //		string oF = this.GetComponent<pathwayAAScore>().outFeed;
 //		Debug.Log ("outScore: " + oS);
 //		Debug.Log ("outFeed: " + oF);
+
+		/* Darken all objects */
+		GameObject[] boxes = GameObject.FindGameObjectsWithTag("boxes");
+		GameObject[] arrows = GameObject.FindGameObjectsWithTag("arrows");
+		GameObject[] mobElem = new GameObject[ boxes.Length + arrows.Length ];
+		boxes.CopyTo(mobElem, 0);
+		arrows.CopyTo(mobElem, boxes.Length);
+		foreach ( GameObject mobE in mobElem ) {
+			mobE.GetComponent<Renderer>().material.color = doneColor;
+			Debug.Log (mobE.name);
+		}
+
 
 		/* Stop time - this locks all objects to current location */
 		Time.timeScale = 0;

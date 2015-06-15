@@ -150,14 +150,14 @@ public class pathwayAAScore : MonoBehaviour {
 
 		/* If box is correct but arrow isn't */
 		if ( oOb != null && oOb == dObs[0] && !oAr.Contains(dObs[3]) ) {
-			outFeed = outFeed + "\n - The direction of " + dObs[1] // change to var
-				+ " is incorrect";
+			outFeed = outFeed + " - The direction of " + dObs[1] // change to var
+				+ " is incorrect.\n";
 		}
 
 		/* If box is incorrect */
 		if ( oOb != null && oOb != dObs[0] ) {
-			outFeed = outFeed + "\n - " + ansAlias[oOb] // change to var
-			+ " is incorrect";
+			outFeed = outFeed + " - " + ansAlias[oOb] // change to var
+			+ " is incorrect.\n";
 		}
 
 		if ( oOb == null) {
@@ -166,7 +166,7 @@ public class pathwayAAScore : MonoBehaviour {
 		/*
 		 * TODO: Do we need to be able to differentiate between incorrect box, and incorrect box AND arrow?
 		 */
-}
+	}
 
 	void OnMouseDown() {
 		foreach (string sck in socks) {
@@ -174,16 +174,18 @@ public class pathwayAAScore : MonoBehaviour {
 		}
 		if (ansMissing != 0) {
 			if (ansMissing == 1) {
-				outFeed = outFeed + "\n - There is 1 word answer slot that has not been filled in.";
+				outFeed = outFeed + " - There is 1 word answer slot that has not been filled in.\n";
 			} else {
-				outFeed = outFeed + "\n - There are " + ansMissing.ToString() + " word answer slots that have not been filled in.";
+				outFeed = outFeed + " - There are " + ansMissing.ToString() + 
+					" word answer slots that have not been filled in.\n";
 			}
 		}
 		if (arrMissing != 0) {
 			if (arrMissing ==1 ) {
-				outFeed = outFeed + "\n - There is 1 arrow slot that has not been filled in.";
+				outFeed = outFeed + " - There is 1 arrow slot that has not been filled in.\n";
 			} else {
-				outFeed = outFeed + "\n - There are " + arrMissing.ToString() + " arrow slots that have not been filled in.";
+				outFeed = outFeed + " - There are " + arrMissing.ToString() + 
+					" arrow slots that have not been filled in.\n";
 			}
 
 		}

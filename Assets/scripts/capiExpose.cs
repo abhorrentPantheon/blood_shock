@@ -4,8 +4,6 @@ using System.Collections;
 public class capiExpose : MonoBehaviour {
 	
 	/* Create CAPI variables */
-	//private static int tmpvar = GameObject.Find("button_done").GetComponent<pathwayAAScore>().outScore;
-	//private int _outScore = tmpvar;
 	private int _outScore = 0;
 	public int oScore {
 		get { return _outScore; }

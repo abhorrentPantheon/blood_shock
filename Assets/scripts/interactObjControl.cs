@@ -12,6 +12,7 @@ public class interactObjControl : MonoBehaviour {
 	private bool dragging = false; 
 	private float distance;
 	//private string chkCont = null;
+	private bool lockAns = false;
 
 	float _x;
 	public float x {
@@ -49,23 +50,27 @@ public class interactObjControl : MonoBehaviour {
 				if (ovList != null && ovObjNm != null && !ovObjAA.ansLock) {
 					this.transform.position = GameObject.Find(ovObjNm).transform.position;
 //					/* Make sure obj at original z-val */
-//					transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, -1);
 					ovObjAA.ansLock = true;
+					this.lockAns = true;
 					this.atDest = true;
+					transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0);
 
 				} else {
 					this.atDest = false;
+					this.lockAns = false;
 				}
-			/* Without both of these, it will stick if it's been assigned before */ 
+			/* Without both of these, it will stick if it has previously been assigned */ 
 			} else {
 				this.atDest = false;
+				this.lockAns = false;
 			}
 		}
 
 	}
 
 	void OnMouseEnter() {
-		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
+
+		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim && !this.lockAns ) {
 			this.GetComponent<Renderer>().material.color = mouseOverColor;
 		}
 	}
@@ -77,6 +82,7 @@ public class interactObjControl : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
+
 		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
 			distance = Vector3.Distance(transform.position, Camera.main.transform.position);
 			dragging = true;
@@ -108,20 +114,25 @@ public class interactObjControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+		/* NB The name "button_done" here must be an exact match */
 		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
 			if (dragging) {
 
-				this.GetComponent<Renderer> ().material.color = mouseOverColor;
+				this.GetComponent<Renderer>().material.color = mouseOverColor;
 
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				Vector3 rayPoint = ray.GetPoint(distance);
-				x = rayPoint.x;
-				y = rayPoint.y;
-				transform.position = new Vector3 (x, y, -1);
+//				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+//				Vector3 rayPoint = ray.GetPoint(distance);
+//				x = rayPoint.x;
+//				y = rayPoint.y;
+				Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				Vector2 mousePos2D = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
+				x = mousePos2D.x;
+				y = mousePos2D.y;
+				this.transform.position = new Vector3 (x, y, -1);
 			}
 			if ( !atHome && !atDest ) {
 				float spd = 100 * Time.deltaTime;
-				this.transform.position = Vector2.MoveTowards(this.transform.position, this.initLoc, spd);
+				this.transform.position = Vector3.MoveTowards(this.transform.position, this.initLoc, spd);
 			}
 			if ( this.transform.position != initLoc ) {
 				atHome = false;

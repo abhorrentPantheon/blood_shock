@@ -63,7 +63,6 @@ public class doneButton : MonoBehaviour {
 		arrows.CopyTo(mobElem, boxes.Length);
 		foreach ( GameObject mobE in mobElem ) {
 			mobE.GetComponent<Renderer>().material.color = doneColor;
-			Debug.Log (mobE.name);
 		}
 
 

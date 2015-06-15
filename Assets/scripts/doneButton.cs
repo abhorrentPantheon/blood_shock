@@ -45,15 +45,16 @@ public class doneButton : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-//		Debug.Log(this.GetComponent<Renderer>().material.color);
-//		finScore++ ;
-//		GameObject.Find("Score").GetComponent<Text>().text = finScore.ToString();
-
 		/* Run the Score script */
-//		string oS = this.GetComponent<pathwayAAScore>().outScore.ToString();
-//		string oF = this.GetComponent<pathwayAAScore>().outFeed;
-//		Debug.Log ("outScore: " + oS);
-//		Debug.Log ("outFeed: " + oF);
+		this.GetComponent<pathwayAAScore> ().calculateScore ();
+		//int oSc = this.GetComponent<pathwayAAScore>().outScore;
+		float oSc = this.GetComponent<pathwayAAScore>().outScore;
+		string oFd = this.GetComponent<pathwayAAScore>().outFeed;
+//		Debug.Log ("outScore: " + oSc);
+//		Debug.Log ("outFeed: " + oFd);
+		
+		this.GetComponent<capiExpose> ().oScore = oSc;
+		this.GetComponent<capiExpose> ().oFeed = oFd;
 
 		/* Darken all objects */
 		GameObject[] boxes = GameObject.FindGameObjectsWithTag("boxes");

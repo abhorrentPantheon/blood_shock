@@ -11,7 +11,9 @@ using System.Collections.Generic;
 
 public class pathwayAAScore : MonoBehaviour {
 
-	public int outScore = 0;
+	/* Currently CAPI only supports float, not int */
+	//public int outScore = 0;
+	public float outScore = 0;
 	public string outFeed = "";
 		
 	private int ansMissing = 0;
@@ -168,7 +170,7 @@ public class pathwayAAScore : MonoBehaviour {
 		 */
 	}
 
-	void OnMouseDown() {
+	public void calculateScore() {
 		foreach (string sck in socks) {
 			ansCheck(sck);
 		}

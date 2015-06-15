@@ -3,9 +3,13 @@ using System.Collections;
 
 public class capiExpose : MonoBehaviour {
 	
-	/* Create CAPI variables */
-	private int _outScore = 0;
-	public int oScore {
+	/* Create CAPI variables 
+	 * NB CAPI only supports float numeric types currently
+	 */
+//	private int _outScore = 0;
+//	public int oScore {
+	private float _outScore = 0;
+	public float oScore {
 		get { return _outScore; }
 		set { _outScore = value; Capi.set ( "Sim.Score", value ); }
 	}
@@ -23,8 +27,11 @@ public class capiExpose : MonoBehaviour {
 		oScore = this.GetComponent<pathwayAAScore>().outScore;
 		oFeed = this.GetComponent<pathwayAAScore>().outFeed;
 
-		/* Allow CAPI variables to be seen */ 
-		Capi.expose<int> ("Sim.Score", () => { return oScore; }, (value) => { return oScore = value; } );
+		/*
+		 * Allow CAPI variables to be seen 
+		 * NB: Currently only float, string, bool, string[] supported
+		 */ 
+		Capi.expose<float> ("Sim.Score", () => { return oScore; }, (value) => { return oScore = value; } );
 		Capi.expose<string> ("Sim.Feedback", () => { return oFeed; }, (value) => { return oFeed = value; } );
 	}
 	

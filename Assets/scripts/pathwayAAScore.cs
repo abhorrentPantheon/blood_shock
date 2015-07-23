@@ -15,6 +15,7 @@ public class pathwayAAScore : MonoBehaviour {
 	//public int outScore = 0;
 	public float outScore = 0;
 	public string outFeed = "";
+	public string outSave = "";
 		
 	private int ansMissing = 0;
 	private int arrMissing = 0;
@@ -174,25 +175,31 @@ public class pathwayAAScore : MonoBehaviour {
 		foreach (string sck in socks) {
 			ansCheck(sck);
 		}
-		if (ansMissing != 0) {
-			if (ansMissing == 1) {
-				outFeed = outFeed + " - There is 1 word answer slot that has not been filled in.\n";
-			} else {
-				outFeed = outFeed + " - There are " + ansMissing.ToString() + 
-					" word answer slots that have not been filled in.\n";
-			}
-		}
+		/* Prepend missing info to outFeed */
 		if (arrMissing != 0) {
 			if (arrMissing ==1 ) {
-				outFeed = outFeed + " - There is 1 arrow slot that has not been filled in.\n";
+				outFeed = " - There is 1 arrow slot that has not been filled in.\n" + outFeed;
 			} else {
-				outFeed = outFeed + " - There are " + arrMissing.ToString() + 
-					" arrow slots that have not been filled in.\n";
+				outFeed = " - There are " + arrMissing.ToString() + 
+					" arrow slots that have not been filled in.\n" + outFeed;
 			}
-
+			
+		}
+		if (ansMissing != 0) {
+			if (ansMissing == 1) {
+				outFeed = " - There is 1 word answer slot that has not been filled in.\n" + outFeed;
+			} else {
+				outFeed = " - There are " + ansMissing.ToString() + 
+					" word answer slots that have not been filled in.\n" + outFeed;
+			}
 		}
 //		Debug.Log(outScore);
 //		Debug.Log(outFeed);
+	}
+
+	public void calcSave() {
+		// calculate save data string
+
 	}
 
 	// Use this for initialization

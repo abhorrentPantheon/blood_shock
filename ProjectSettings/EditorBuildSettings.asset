@@ -7,5 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/pathway.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/pathway.001.unity
+  - enabled: 0
+    path: Assets/pathway.001.unity
+  - enabled: 1
+    path: Assets/pathway.002.unity

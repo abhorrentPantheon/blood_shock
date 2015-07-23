@@ -354,6 +354,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &138767059
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -362,11 +363,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &138767060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +579,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &208551653
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -586,11 +588,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &208551654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -714,7 +716,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 52.6470833
+  orthographic size: 57
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -726,6 +728,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &246521913
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,6 +1744,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &521046076
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1749,11 +1753,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &521046077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1890,6 +1894,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &541320504
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1898,11 +1903,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &541320505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,6 +2162,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &553852235
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2165,11 +2171,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &553852236
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2419,6 +2425,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &638899238
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2427,11 +2434,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &638899239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2530,6 +2537,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &648215097
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2538,11 +2546,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &648215098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2738,6 +2746,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &706891849
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2746,11 +2755,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &706891850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3194,6 +3203,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &915301583
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -3202,11 +3212,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &915301584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3402,6 +3412,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &986741900
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -3410,11 +3421,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &986741901
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3904,7 +3915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5357348a860be4e4bb4d4f481f15175c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outSaveData: 
 --- !u!4 &1236054845
 Transform:
   m_ObjectHideFlags: 0
@@ -4049,6 +4059,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &1320705346
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4057,11 +4068,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &1320705347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4295,6 +4306,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &1509602672
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4303,11 +4315,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1509602673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4368,6 +4380,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &1566811665
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4376,11 +4389,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &1566811666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4479,6 +4492,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &1574370421
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4487,11 +4501,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &1574370422
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4628,6 +4642,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &1667396062
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4636,11 +4651,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1667396063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4701,6 +4716,7 @@ BoxCollider2D:
   m_Size: {x: 5.11999989, y: 5.11999989}
 --- !u!50 &1678138327
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4709,11 +4725,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &1678138328
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4812,6 +4828,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &1692577850
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4820,11 +4837,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &1692577851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5155,6 +5172,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &1790309560
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -5163,11 +5181,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1790309561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6288,6 +6306,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &2060106732
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -6296,11 +6315,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &2060106733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6690,6 +6709,7 @@ BoxCollider2D:
   m_Size: {x: 10.2399998, y: 5.11999989}
 --- !u!50 &2146661899
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -6698,11 +6718,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &2146661900
 MonoBehaviour:
   m_ObjectHideFlags: 0

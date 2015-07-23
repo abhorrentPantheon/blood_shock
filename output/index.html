@@ -9,10 +9,11 @@
     </style>
   </head>
   <body>
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="400px" width="500px"></canvas>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="360px" width="480px"></canvas>
     <script type='text/javascript'>
   // connect to canvas
   var Module = {
+    TOTAL_MEMORY: 268435456,
     filePackagePrefixURL: "Release/",
     memoryInitializerPrefixURL: "Release/",
     preRun: [],
@@ -55,11 +56,11 @@
 <script src="Release/fileloader.js"></script>
 <script>if (!(!Math.fround)) {
   var script = document.createElement('script');
-  script.src = "Release/outputAAp.js";
+  script.src = "Release/output.js";
   document.body.appendChild(script);
 } else {
   var codeXHR = new XMLHttpRequest();
-  codeXHR.open('GET', 'Release/outputAAp.js', true);
+  codeXHR.open('GET', 'Release/output.js', true);
   codeXHR.onload = function() {
     var code = codeXHR.responseText;
     if (!Math.fround) { 

@@ -11,12 +11,14 @@ Module.expectedDataFileDownloads++;
     var PACKAGE_PATH;
     if (typeof window === 'object') {
       PACKAGE_PATH = window['encodeURIComponent'](window.location.pathname.toString().substring(0, window.location.pathname.toString().lastIndexOf('/')) + '/');
-    } else {
+    } else if (typeof location !== 'undefined') {
       // worker
       PACKAGE_PATH = encodeURIComponent(location.pathname.toString().substring(0, location.pathname.toString().lastIndexOf('/')) + '/');
+    } else {
+      throw 'using preloaded data can only be done on a web page or in a web worker';
     }
-    var PACKAGE_NAME = 'outputAAp.data';
-    var REMOTE_PACKAGE_BASE = 'outputAAp.data';
+    var PACKAGE_NAME = 'output.data';
+    var REMOTE_PACKAGE_BASE = 'output.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -24,8 +26,8 @@ Module.expectedDataFileDownloads++;
     var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
                               Module['locateFile'](REMOTE_PACKAGE_BASE) :
                               ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
-    var REMOTE_PACKAGE_SIZE = 8435649;
-    var PACKAGE_UUID = '0c8c025d-c4f2-44d5-bf18-ff87e5fc97ee';
+    var REMOTE_PACKAGE_SIZE = 10577253;
+    var PACKAGE_UUID = '358ab81f-9f68-4624-8947-1f58c1e0e6b4';
   
     function fetchRemotePackage(packageName, packageSize, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -77,6 +79,8 @@ Module.expectedDataFileDownloads++;
 function assert(check, msg) {
   if (!check) throw msg + new Error().stack;
 }
+Module['FS_createPath']('/', 'Il2CppData', true, true);
+Module['FS_createPath']('/Il2CppData', 'Metadata', true, true);
 Module['FS_createPath']('/', 'Resources', true, true);
 
     function DataRequest(start, end, crunched, audio) {
@@ -113,11 +117,12 @@ Module['FS_createPath']('/', 'Resources', true, true);
         this.requests[this.name] = null;
       },
     };
-      new DataRequest(0, 61016, 0, 0).open('GET', '/mainData');
-    new DataRequest(61016, 61037, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
-    new DataRequest(61037, 6366449, 0, 0).open('GET', '/sharedassets0.assets');
-    new DataRequest(6366449, 7926821, 0, 0).open('GET', '/Resources/unity_default_resources');
-    new DataRequest(7926821, 8435649, 0, 0).open('GET', '/Resources/unity_builtin_extra');
+      new DataRequest(0, 62240, 0, 0).open('GET', '/mainData');
+    new DataRequest(62240, 62261, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
+    new DataRequest(62261, 7068569, 0, 0).open('GET', '/sharedassets0.assets');
+    new DataRequest(7068569, 8499565, 0, 0).open('GET', '/Il2CppData/Metadata/global-metadata.dat');
+    new DataRequest(8499565, 10074601, 0, 0).open('GET', '/Resources/unity_default_resources');
+    new DataRequest(10074601, 10577253, 0, 0).open('GET', '/Resources/unity_builtin_extra');
 
       var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
       var IDB_RO = "readonly";
@@ -218,12 +223,13 @@ Module['FS_createPath']('/', 'Resources', true, true);
           DataRequest.prototype.requests["/mainData"].onload();
           DataRequest.prototype.requests["/methods_pointedto_by_uievents.xml"].onload();
           DataRequest.prototype.requests["/sharedassets0.assets"].onload();
+          DataRequest.prototype.requests["/Il2CppData/Metadata/global-metadata.dat"].onload();
           DataRequest.prototype.requests["/Resources/unity_default_resources"].onload();
           DataRequest.prototype.requests["/Resources/unity_builtin_extra"].onload();
-          Module['removeRunDependency']('datafile_outputAAp.data');
+          Module['removeRunDependency']('datafile_output.data');
 
     };
-    Module['addRunDependency']('datafile_outputAAp.data');
+    Module['addRunDependency']('datafile_output.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
